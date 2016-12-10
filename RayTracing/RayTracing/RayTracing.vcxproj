@@ -87,7 +87,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
@@ -148,13 +148,19 @@
   <ItemGroup>
     <ClInclude Include="Image.h" />
     <ClInclude Include="ImageLoader.h" />
+    <ClInclude Include="Object.h" />
     <ClInclude Include="Pixel.h" />
+    <ClInclude Include="Point.h" />
+    <ClInclude Include="RayTracing.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="ImageLoader.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Object.cpp" />
     <ClCompile Include="Pixel.cpp" />
+    <ClCompile Include="Point.cpp" />
+    <ClCompile Include="RayTracing.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
