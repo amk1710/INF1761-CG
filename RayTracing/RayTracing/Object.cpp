@@ -4,7 +4,7 @@
 
 // Classe Material
 
-Material::Material(char * name, Point Kd, Point Ks, int n_especular, double k, double n_refracao, double o, char *texture)
+Material::Material(std::string name, Pixel Kd, Pixel Ks, int n_especular, float k, float n_refracao, float o, std::string texture)
 {
 	this->name = name;
 	this->Kd = Kd;
@@ -16,7 +16,7 @@ Material::Material(char * name, Point Kd, Point Ks, int n_especular, double k, d
 	this->texture = texture;
 }
 
-Material::Material(char * name, Point Kd, Point Ks, int n_especular)
+Material::Material(std::string name, Pixel Kd, Pixel Ks, int n_especular)
 {
 	this->name = name;
 	this->Kd = Kd;
@@ -32,15 +32,15 @@ Material::Material(char * name, Point Kd, Point Ks, int n_especular)
 
 Material::Material()
 {
-	this->name = "NAN";
-	this->Kd = Point(0,0,0);
-	this->Ks = Point(0, 0, 0);
-	this->n_especular = 0;
 	// valores default
+	this->name = "NAN";
+	this->Kd = Pixel(0,0,0);
+	this->Ks = Pixel(0, 0, 0);
+	this->n_especular = 0;	
 	this->k = 0;
 	this->n_refracao = 0;
 	this->o = 1;
-	this->texture = nullptr;
+	this->texture = "null";
 }
 
 
@@ -51,13 +51,13 @@ Material::Material()
 // Classe abstrata Object
 Object::Object()
 {
-	material = Material("NAN", Point(0, 0, 0), Point(0, 0, 0), 1);
+	material = new Material();
 }
 
 // FIM. Classe abstrata Object
 
 // sub-classe de Object, Sphere
-Sphere::Sphere(Point center, float radius, Material material)
+Sphere::Sphere(Point center, float radius, Material *material)
 {
 	this->center = center;
 	this->radius = radius;
@@ -69,9 +69,44 @@ Point Sphere::intercept()
 	std::cout << "center: " << center.getX() << " ," << center.getY() << " ," << center.getZ() << std::endl;
 	std::cout << "radius" << radius << std::endl;
 
-	std::cout << "material:" << material.name << std::endl;
+	std::cout << "material:" << material->name << std::endl;
 
 	return Point(0.0, 0.0, 0.0);
 }
 
 // FIM. sub-classe de Object, Sphere
+
+// sub-classe de Object, box
+
+Box::Box(Point lowerLeft, Point topRight, Material *material)
+{
+	this->lowerLeft = lowerLeft;
+	this->topRight = topRight;
+	this->material = material;
+}
+
+Point Box::intercept()
+{
+
+	std::cout << "material:" << material->name << std::endl;
+
+	return Point(0.0, 0.0, 0.0);
+}
+
+// FIM. sub-classe de Object, Sphere
+
+
+Triangle::Triangle(Point v1, Point v2, Point v3, Material *material)
+{
+	this->v1 = v1;
+	this->v2 = v2;
+	this->v3 = v3;
+	this->material = material;
+}
+
+Point Triangle::intercept()
+{
+	std::cout << "material:" << material->name << std::endl;
+
+	return Point(0.0, 0.0, 0.0);
+}

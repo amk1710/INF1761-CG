@@ -14,6 +14,13 @@ Pixel::Pixel( )
     _val[0] = _val[1] = _val[2] = 0.0;
 }
 
+Pixel::Pixel(float r, float g, float b)
+{
+	_val[0] = r;
+	_val[1] = g;
+	_val[2] = b;
+}
+
 
 
 float& Pixel::operator[]( unsigned int i )

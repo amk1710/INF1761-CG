@@ -24,13 +24,13 @@
 int main( int argc, char** argv )
 {
 
-	char* name = "teste";
+	char* name = "person.rt5";
 	RayTracing rt = RayTracing(name);
 	Image l;
 
 	rt.Render(l);
         
-    if (l.writeBMP( name ))
+    if (l.writeBMP( "out.bmp" ))
     {
         printf( "Escrita executada com sucesso\n" );
     }

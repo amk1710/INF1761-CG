@@ -16,6 +16,12 @@ public:
      */
     Pixel( );
 
+	/**
+	* Construtor 3xfloat.
+	*/
+
+	Pixel(float r, float g, float b);
+
     /**
      * Sobrecarga do operador [] para acessar as informacoes dos pixels.
      * @param i - posicao a ser acessada.

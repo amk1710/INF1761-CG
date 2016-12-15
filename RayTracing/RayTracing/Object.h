@@ -11,40 +11,43 @@
 #ifndef OBJECT_H
 #define OBJECT_H
 
+#include <string>
+
 #include "Point.h"
+#include "Pixel.h"
 
 class Material
 {
 public:
-	Material(char *name, Point Kd, Point Ks, int n_especular, double k, double n_refracao, double o, char *texture);
+	Material(std::string name, Pixel Kd, Pixel Ks, int n_especular, float k, float n_refracao, float o, std::string texture);
 
-	Material(char *name, Point Kd, Point Ks, int n_especular);
+	Material(std::string name, Pixel Kd, Pixel Ks, int n_especular);
 
 	Material();
 	
 	//nome do material
-	char *name;
+	std::string name;
 	
 	//coeficiente da reflexão difusa(r,g,b)
-	Point Kd;
+	Pixel Kd;
 	
 	//coeficiente da reflexão especular(r,g,b)
-	Point Ks;
+	Pixel Ks;
 	
 	//N especular((...)^n)
 	int n_especular;
 	
 	//coeficiente de reflexão(espelho)
-	double k;
+	float k;
 	
 	//indice de refração, se opacidade < 1(snell)
-	double n_refracao;
+	float n_refracao;
 
 	//opacidade (0 = transparente, 1 = opaco)
-	double o;
+	float o;
 
 	//textura a ser utilizada (NULL para nao usar)
-	char *texture;
+	std::string texture;
 };
 
 //classe abstrata objeto. Não pode ser instanciada. Super-classe dos objetos da cena como esferas, triangulos e planos
@@ -60,19 +63,46 @@ public:
 	virtual Point intercept() = 0;
 	
 protected:
-	Material material;
+	Material *material;
 };
 
 
 class Sphere : public Object
 {
 public:
-	Sphere(Point center, float radius, Material material);
+	Sphere(Point center, float radius, Material *material);
 
 	Point intercept();
 private:
 	Point center;
 	float radius;
+};
+
+class Box : public Object
+{
+public:
+	Box(Point lowerLeft, Point topRight, Material *material);
+
+	Point intercept();
+
+private:
+	Point lowerLeft;
+	Point topRight;
+};
+
+class Triangle : public Object
+{
+public:
+	Triangle(Point v1, Point v2, Point v3, Material *material);
+
+	Point intercept();
+
+private:
+	//vertices
+	Point v1, v2, v3;
+
+	//coordenadas de textura dos vértices
+	//Point ct1, ct2, ct3;
 };
 
 #endif /* OBJECT_H */
