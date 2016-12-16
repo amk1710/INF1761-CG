@@ -3,6 +3,7 @@
 #include <iostream>
 #include <fstream>
 
+//classe RayTracing
 RayTracing::RayTracing(char * path)
 {
 	_path = path;
@@ -268,11 +269,14 @@ void RayTracing::Render(Image & l)
 	{
 		for (int j = 0; j < h; j++)
 		{
-			Pixel p;
-			p[0] = 0.7;
-			p[1] = 0.3;
-			p[2] = 0.9;
+			Ray ray = getRay(i, j);
+			Pixel p = trace(ray);
 			l.setPixel(i, j, p);
+			float print = (i*h + j) / (w*h);
+			std::cout << '\r'
+				<< std::setw(2) << std::setfill('0') << i << ','
+				<< std::setw(2) << j << ':'
+				<< std::setw(2) << print << std::flush;
 		}
 	}
 
@@ -294,7 +298,8 @@ Material* RayTracing::searchMaterial(std::string name)
 int RayTracing::setup()
 {
 	f = near;
-	a = 2 * f*tan(fovy / 2.0);
+	float radians = fovy * (3.14159265 / 180.0);
+	a = 2.0 * f * tan(radians / 2.0);
 	b = ((float)w / (float)h)*a;
 
 	//calculo do sistemas de coordenadas
@@ -306,8 +311,52 @@ int RayTracing::setup()
 	Xeye.normalize();
 	//Yeye
 	Yeye = Zeye.produto_vetorial(Xeye);
-	Yeye.normalize();
+	//Yeye.normalize();
 
 	return 0;
+	
+}
+
+Ray RayTracing::getRay(int i, int j)
+{
+	/*
+	for (int k = 0; k < 3; k++) d[k] = -near*ze[k] + altura*(j/h - 0.5)*ye[k] + base*(i/w - 0.5)*xe[k];
+	tempnorm = norm(d);
+	for (int k = 0; k < 3; k++) d[k] /= tempnorm
+	*/
+	
+	Point d = Point();
+	d = Zeye * -f;
+	d = d + (Yeye * (a*(((float)j / (float)h) - 0.5 )));
+	d = d + (Xeye * (b*(((float)i / (float)w) - 0.5 )));
+
+	//normaliza?
+	d.normalize();
+
+	return Ray(eye, d);
+}
+
+Pixel RayTracing::trace(Ray ray)
+{
+	float t = FLT_MAX, temp;
+	int index = -1;
+	for (int i = 0; i < objects.size(); i++)
+	{
+		temp = objects[i]->intercept(ray);
+		if (temp != 0 && temp < t)
+		//interceptação mais próxima que anterior encontrado
+		{
+			t = temp;
+			index = i;
+		}
+	}
+	if (t > 0 && t != FLT_MAX && index != -1)
+	{
+		return objects[index]->getMaterial()->Kd;
+	}
+	else
+	{
+		return bgColor;
+	}
 	
 }

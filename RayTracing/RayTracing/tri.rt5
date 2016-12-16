@@ -1,0 +1,8 @@
+RT 5
+SCENE 0.1 0.1 0.12 0.2 0.2 0.2 null
+CAMERA 10 0 0  0 0 0  0 0 1  90 1 100 400 400
+MATERIAL green70   0.0 0.7 0   0 0 0  25  0  0  1  null
+LIGHT 0 -450 600 0.8 0.8 0.8
+!SPHERE grey80   20      50 -300 20
+!BOX   yellow30    -540 560 430   -260 600 450
+TRIANGLE green70  0 0 0   1 0 0  0 0 1  0 0   1 0   0 0

@@ -7,10 +7,12 @@
 #include <sstream>
 #include <string>
 #include <math.h>
+#include <iomanip>
 
 #include "Image.h"
 #include "Object.h"
 #include "Point.h"
+#include "Ray.h"
 
 
 class RayTracing
@@ -35,6 +37,12 @@ private:
 	//calcula valores do pré-processamento
 	int setup();
 
+	//obtem o raio do ponto (i,j)
+	Ray getRay(int i, int j);
+
+	//traça o raio e retorna o pixel obtido
+	Pixel trace(Ray ray);
+
 	//ENTRY VALUES
 
 	char* _path;
@@ -48,6 +56,7 @@ private:
 	Point eye;
 	Point ref;
 	Point up;
+	//ângulo de abertura EM GRAUS
 	float fovy;
 	float near;
 	float far;
@@ -72,6 +81,7 @@ private:
 
 	//vetores do sistema de coordenada do olho
 	Point Xeye, Yeye, Zeye;
+
 
 };
 

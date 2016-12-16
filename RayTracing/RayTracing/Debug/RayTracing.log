@@ -1,3 +1,10 @@
 ﻿  main.cpp
+  Object.cpp
+c:\users\paulomax\documents\visual studio 2015\projects\inf1761-cg\raytracing\raytracing\object.cpp(127): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\paulomax\documents\visual studio 2015\projects\inf1761-cg\raytracing\raytracing\object.cpp(128): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\paulomax\documents\visual studio 2015\projects\inf1761-cg\raytracing\raytracing\object.cpp(268): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\paulomax\documents\visual studio 2015\projects\inf1761-cg\raytracing\raytracing\object.cpp(269): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\paulomax\documents\visual studio 2015\projects\inf1761-cg\raytracing\raytracing\object.cpp(270): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  Generating Code...
   RayTracing.vcxproj -> C:\Users\PauloMax\Documents\Visual Studio 2015\Projects\INF1761-CG\RayTracing\Debug\RayTracing.exe
   RayTracing.vcxproj -> C:\Users\PauloMax\Documents\Visual Studio 2015\Projects\INF1761-CG\RayTracing\Debug\RayTracing.pdb (Full PDB)

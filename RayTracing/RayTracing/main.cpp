@@ -12,6 +12,7 @@
 #include <algorithm>
 #include <math.h>
 #include <float.h>
+#include <ctime>
 
 #include "Image.h"
 #include "RayTracing.h"
@@ -28,12 +29,19 @@ int main( int argc, char** argv )
 	RayTracing rt = RayTracing(name);
 	Image l;
 
+	clock_t begin = clock();
+
 	rt.Render(l);
-        
-    if (l.writeBMP( "out.bmp" ))
+
+	clock_t end = clock();
+	double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
+      
+    if (l.writeBMP( "personOut.bmp" ))
     {
         printf( "Escrita executada com sucesso\n" );
     }
+
+	printf("tempo decorrido: %f\n", elapsed_secs);
 
     return 0;
 }

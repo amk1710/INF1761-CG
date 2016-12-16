@@ -151,6 +151,7 @@
     <ClInclude Include="Object.h" />
     <ClInclude Include="Pixel.h" />
     <ClInclude Include="Point.h" />
+    <ClInclude Include="Ray.h" />
     <ClInclude Include="RayTracing.h" />
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +161,7 @@
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="Pixel.cpp" />
     <ClCompile Include="Point.cpp" />
+    <ClCompile Include="Ray.cpp" />
     <ClCompile Include="RayTracing.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

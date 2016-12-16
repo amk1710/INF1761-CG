@@ -15,6 +15,7 @@
 
 #include "Point.h"
 #include "Pixel.h"
+#include "Ray.h"
 
 class Material
 {
@@ -59,8 +60,14 @@ public:
 	*/
 	Object();
 
-	//pure virtual function a ser implementada por cada tipo de objeto
-	virtual Point intercept() = 0;
+	Material* getMaterial();
+
+	//pure virtual functions a serem implementadas por cada tipo de objeto. 
+	//retorna o ponto interceptado e modifica o float t para o valor de t(lançamento: p = o+td)
+	virtual float intercept(Ray ray) = 0;
+
+	//retorna a normal no ponto passado. Se o ponto não pertencer ao objeto, retorna 0
+	virtual Point normal(Point p) = 0;
 	
 protected:
 	Material *material;
@@ -72,7 +79,8 @@ class Sphere : public Object
 public:
 	Sphere(Point center, float radius, Material *material);
 
-	Point intercept();
+	float intercept(Ray ray);
+	Point normal(Point p);
 private:
 	Point center;
 	float radius;
@@ -83,7 +91,8 @@ class Box : public Object
 public:
 	Box(Point lowerLeft, Point topRight, Material *material);
 
-	Point intercept();
+	float intercept(Ray ray);
+	Point normal(Point p);
 
 private:
 	Point lowerLeft;
@@ -95,7 +104,8 @@ class Triangle : public Object
 public:
 	Triangle(Point v1, Point v2, Point v3, Material *material);
 
-	Point intercept();
+	float intercept(Ray ray);
+	Point normal(Point p);
 
 private:
 	//vertices

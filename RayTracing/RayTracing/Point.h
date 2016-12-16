@@ -35,6 +35,14 @@ public:
 	float operator*(const Point& p) const;
 
 	/**
+	* Realiza o produto de um ponto por um escalar.
+	* @param t - escalar multiplicativo.
+	* @return - novo ponto multiplicado.
+	*/
+
+	Point operator*(const float t) const;
+
+	/**
 	* Sobrecarga do operador -.
 	* @param p - ponto a ser subtraido.
 	* @return - resultado da operacao.

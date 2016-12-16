@@ -77,11 +77,21 @@ Point Point::produto_vetorial(Point p2)
 
 float Point::operator*(const Point& p) const
 {
-	float product = _x*_x + _y*_y + _z*_z;
+	float product = _x*p._x + _y*p._y + _z*p._z;
 	return product;
 }
 
 
+
+Point Point::operator*(const float t) const
+{
+	float tx = _x*t;
+	float ty = _y*t;
+	float tz = _z*t;
+	
+	Point result(tx, ty, tz);
+	return result;
+}
 
 Point Point::operator-(const Point& p) const
 {
