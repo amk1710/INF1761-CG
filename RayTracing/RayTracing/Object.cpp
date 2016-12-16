@@ -2,6 +2,8 @@
 
 #include <iostream>
 
+#define FLT_TOL 0.0005
+
 // Classe Material
 
 Material::Material(std::string name, Pixel Kd, Pixel Ks, int n_especular, float k, float n_refracao, float o, std::string texture)
@@ -132,7 +134,11 @@ float Sphere::intercept(Ray ray)
 
 Point Sphere::normal(Point p)
 {
-	return Point();
+	//a direção da normal da esfera é a direção do vetor que parte de seu centro até o ponto p preterido.
+	Point n = Point();
+	n = p - center;
+	n.normalize();
+	return n;
 }
 
 // FIM. sub-classe de Object, Sphere
@@ -235,7 +241,45 @@ float Box::intercept(Ray ray)
 
 Point Box::normal(Point p)
 {
-	return Point();
+	Point normal = Point();
+	//sequência de if's para descobrir em quais faces está o ponto. Ele pode estar em 1, 2 ou 3 faces, por isso o vetor é normalizado ao fim. 
+	//se ele não tiver em nenhuma face, a normal retornada será 0, o erro não é tratado
+	//X
+	if (fabs(p.getX() - lowerLeft.getX()) < FLT_TOL)
+	//ponto está na face esquerda
+	{
+		normal.SetX(-1);
+	}
+	else if (fabs(p.getX() - topRight.getX()) < FLT_TOL)
+	//ponto está na face direita
+	{
+		normal.SetX(1);
+	}
+	//Y
+	if (fabs(p.getY() - lowerLeft.getY()) < FLT_TOL)
+	//ponto está na face posterior
+	{
+		normal.SetY(-1);
+	}
+	else if (fabs(p.getY() - topRight.getY()) < FLT_TOL)
+	//ponto está na face anterior
+	{
+		normal.SetY(1);
+	}
+	//Z
+	if (fabs(p.getZ() - lowerLeft.getZ()) < FLT_TOL)
+	//ponto está na face inferior
+	{
+		normal.SetZ(-1);
+	}
+	else if (fabs(p.getZ() - topRight.getZ()) < FLT_TOL)
+	//ponto está na face superior
+	{
+		normal.SetZ(1);
+	}
+
+	normal.normalize();
+	return normal;
 }
 
 // FIM. sub-classe de Object, Sphere

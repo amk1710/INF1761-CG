@@ -37,12 +37,19 @@ public:
     float& operator[]( unsigned int i );
 
     /**
-     * Realiza o produto escalar entre dois pixels.
+     * Realiza o "produto cor" entre dois pixels.
      * @param p - pixel a ser multiplicado pelo pixel corrente.
      * @return - resulatado do produto escalar.
      */
-    float operator*( const Pixel& p ) const;
-    
+    Pixel operator*( const Pixel& p ) const;
+
+	/**
+	* Multiplica o pixel pelo escalar k
+	* @param p - pixel a ser multiplicado por k.
+	* @return - resultado do produto escalar.
+	*/
+	Pixel operator*(const float& k) const;
+
     /**
      * Sobrecarga do operador -.
      * @param p - pixel a ser subtraido.

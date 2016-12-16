@@ -13,6 +13,7 @@
 #include "Object.h"
 #include "Point.h"
 #include "Ray.h"
+#include "Light.h"
 
 
 class RayTracing
@@ -65,9 +66,8 @@ private:
 	//object materials
 	std::vector<Material> materials;
 
-	//light parametres
-	std::vector<Point> lightsPositions;
-	std::vector<Pixel> lightsIntensities;
+	//lights
+	std::vector<Light> lights;
 
 	//scene objects
 	std::vector<Object*> objects;

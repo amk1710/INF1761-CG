@@ -124,6 +124,7 @@ int readFile(std::string path, RayTracing *RTpointer)
 			int n;
 			float kd[3], ks[3], k, ref, o;
 			rt5 >> nome;
+			//se o material não tiver nome, kd[0] é o primeiro argumento lido
 			if (isdigit(nome[0])) kd[0] = std::stof(nome);
 			else rt5 >> kd[0];
 			rt5 >> kd[1];
@@ -168,9 +169,9 @@ int readFile(std::string path, RayTracing *RTpointer)
 
 			Point point = Point(posicao[0], posicao[1], posicao[2]);
 			Pixel pixel = Pixel(intensidade[0], intensidade[1], intensidade[2]);
-			RTpointer->lightsPositions.push_back(point);
-			RTpointer->lightsIntensities.push_back(pixel);
-
+			Light l = Light(point, pixel);
+			RTpointer->lights.push_back(l);
+			
 		}
 
 		else if (temp == "SPHERE")
@@ -285,6 +286,12 @@ void RayTracing::Render(Image & l)
 
 Material* RayTracing::searchMaterial(std::string name)
 {
+	//é número?
+	if (isdigit(name[0]))
+	{
+		return &materials[name[0] - '0'];
+	}
+	
 	for (int i = 0; i < materials.size(); i++)
 	{
 		if (materials[i].name == name)
@@ -352,7 +359,30 @@ Pixel RayTracing::trace(Ray ray)
 	}
 	if (t > 0 && t != FLT_MAX && index != -1)
 	{
-		return objects[index]->getMaterial()->Kd;
+		//calcula componente de luz difusa
+		Pixel diffuse = Pixel();
+
+		//ponto de interceptação
+		Point p1 = ray.o + (ray.d * t);
+		//normal no ponto
+		Point normal = objects[index]->normal(p1);
+
+		//luz ambiente
+		Pixel ambient = bgLightIntensity * objects[index]->getMaterial()->Kd;
+		ambient = ambient * 10;
+
+		for (int i = 0; i < lights.size(); i++)
+		{
+			
+			//L é o vetor unitário que aponta do intercepto para a fonte de luz em questão
+			Point L = (lights[i].position - p1);
+			L.normalize();
+			//cosseno entre a normal e L. Calculado com o produto escalar
+			float cos = normal * L;
+			diffuse = diffuse + ((objects[index]->getMaterial()->Kd * lights[i].intensity) * cos);
+		}
+		return diffuse + ambient;
+
 	}
 	else
 	{
