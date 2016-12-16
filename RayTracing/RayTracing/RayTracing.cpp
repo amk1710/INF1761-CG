@@ -387,20 +387,23 @@ Pixel RayTracing::shade(int index, Point p1)
 	//vetor v aponta do interceptante para o centro de projeção
 	Point v = (eye - p1);
 	v.normalize();
-	
+	//Podemos simplificar o algoritmo refletindo o vetor v em relação à normal n uma única vez e, para cada fonte luminosa, fazer o produto interno entre esse vetor e o vetor L correspondente
+	Point Rr = (normal * 2 *(v * normal)) - v;
 	for (int i = 0; i < lights.size(); i++)
 	{
 
 		//L é o vetor unitário que aponta do intercepto para a fonte de luz em questão
 		Point L = (lights[i].position - p1);
 		L.normalize();
-		//cosseno entre a normal e L. Calculado com o produto escalar
-		float cos = normal * L;
-		//vetor r = reflexão de L em torno da normal n
-		Point r = L - (normal * (2 * (L * normal)));
-
-		diffuse = diffuse + ((objects[index]->getMaterial()->Kd * lights[i].intensity) * cos);
-		specular = specular + (objects[index]->getMaterial()->Ks * lights[i].intensity * powf((r * v), objects[index]->getMaterial()->n_especular));
+		//cosseno entre a normal e L = entre . Calculado com o produto escalar
+		float cos = Rr * L;
+		if (cos > 0)
+		//se o cosseno for menos que 0, a luz não ilumina o objeto porque é obstruída por ele próprio(a luz está "do outro lado" do objeto)
+		{
+			diffuse = diffuse + ((objects[index]->getMaterial()->Kd * lights[i].intensity) * cos);
+			specular = specular + (objects[index]->getMaterial()->Ks * lights[i].intensity * powf((Rr * L), objects[index]->getMaterial()->n_especular));
+		}
+		
 	}
 
 	return diffuse + ambient + specular;
