@@ -21,6 +21,8 @@ public:
 	//normaliza o ponto
 	void normalize();
 
+	float norma();
+
 	//reflete ponto em torno do ponto passado por argumento
 	Point reflect(Point p2);
 

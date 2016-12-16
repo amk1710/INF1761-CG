@@ -8,6 +8,12 @@ void Point::normalize()
 	_z = _z / norm;
 }
 
+float Point::norma()
+{
+	float norma2 = _x * _x + _y * _y + _z * _z;
+	return  sqrt(norma2);
+}
+
 Point Point::reflect(Point p2)
 {
 	Point p1 = *this;

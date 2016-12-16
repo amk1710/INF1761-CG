@@ -381,13 +381,41 @@ Pixel RayTracing::trace(Ray ray, int rec)
 			reflection  = trace(reflectedRay, rec + 1) * mat->k;
 		}
 
-		//if (mat->o < 1)
-		//{
-		//	Point normal = objects[index]->normal(p1);
-		//	//componente tangencial do vetor v
-		//	Point vt = 
-		//	Point dr = 
-		//}
+		if (mat->o < 1)
+		{
+			//Point normal = objects[index]->normal(p1);
+			//Point dNormalized = ray.d;
+			//dNormalized.normalize();
+			////cos entre raio incidente e reta da 
+			//float cosI = (normal *-1) * dNormalized;
+			////cos^2 + sen^2 = 1
+			//float senI = sqrt(1 - cosI*cosI);
+			////n é o coeficiente de refração do meio
+			////sen(angulo-refratado) / sen(angulo-incidente) = Ni / Nr
+			//// --> angulo-refratado = arcsen(Ni / Nr * sen(angulo-incidente))
+			////convenção: N do meio "ar" (fora de qualquer objeto é 1)
+			//float angR = asin(1.0 / mat->n_refracao * senI);
+
+			Point normal = objects[index]->normal(p1);
+			//v é o unitário que aponta para o eye
+			Point v = ray.d * -1;
+			v.normalize();
+			//componente tangencial de v
+			Point vt = normal * (v * normal) - v;
+			float sinI = vt.norma();
+			//seno e cosseno do ângulo refratado
+			//por definição: N do meio "vácuo" (fora de qualquer objeto) é 1
+			float sinR = 1.0 / mat->n_refracao * sinI;
+			float cosR = sqrt(1 - sinR*sinR);
+
+			vt.normalize();
+			//vetor direção do raio refratado
+			Point dr = (vt * sinR) + (normal * -1 * cosR);
+
+			Ray refratado = Ray(p1, dr);
+			refracted = trace(refratado, rec + 1) * (1 - mat->o);
+
+		}
 
 		Pixel shaded = shade(index, p1, rec, ray.o) * (1 - objects[index]->getMaterial()->k) * (mat->o);
 
