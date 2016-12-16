@@ -44,6 +44,9 @@ private:
 	//traça o raio e retorna o pixel obtido
 	Pixel trace(Ray ray);
 
+	//dado o índice de um objeto e um ponto de sua superfície, calcula a cor daquele ponto NAQUELE OBJET0.
+	Pixel shade(int index, Point p1);
+
 	//ENTRY VALUES
 
 	char* _path;

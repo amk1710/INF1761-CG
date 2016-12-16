@@ -110,6 +110,8 @@ public:
 private:
 	//vertices
 	Point v1, v2, v3;
+	//a normal do triangulo não depende do intercepto, portanto podemos calculá-la e armazená-la
+	Point n;
 
 	//coordenadas de textura dos vértices
 	//Point ct1, ct2, ct3;

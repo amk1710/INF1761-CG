@@ -1,13 +1,3 @@
-﻿  RayTracing.cpp
-c:\users\paulomax\documents\visual studio 2015\projects\inf1761-cg\raytracing\raytracing\raytracing.cpp(116): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-c:\users\paulomax\documents\visual studio 2015\projects\inf1761-cg\raytracing\raytracing\raytracing.cpp(117): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-c:\users\paulomax\documents\visual studio 2015\projects\inf1761-cg\raytracing\raytracing\raytracing.cpp(276): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-c:\users\paulomax\documents\visual studio 2015\projects\inf1761-cg\raytracing\raytracing\raytracing.cpp(295): warning C4018: '<': signed/unsigned mismatch
-c:\users\paulomax\documents\visual studio 2015\projects\inf1761-cg\raytracing\raytracing\raytracing.cpp(308): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-c:\users\paulomax\documents\visual studio 2015\projects\inf1761-cg\raytracing\raytracing\raytracing.cpp(309): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\paulomax\documents\visual studio 2015\projects\inf1761-cg\raytracing\raytracing\raytracing.cpp(337): warning C4244: 'argument': conversion from 'double' to 'const float', possible loss of data
-c:\users\paulomax\documents\visual studio 2015\projects\inf1761-cg\raytracing\raytracing\raytracing.cpp(338): warning C4244: 'argument': conversion from 'double' to 'const float', possible loss of data
-c:\users\paulomax\documents\visual studio 2015\projects\inf1761-cg\raytracing\raytracing\raytracing.cpp(350): warning C4018: '<': signed/unsigned mismatch
-c:\users\paulomax\documents\visual studio 2015\projects\inf1761-cg\raytracing\raytracing\raytracing.cpp(374): warning C4018: '<': signed/unsigned mismatch
+﻿  main.cpp
   RayTracing.vcxproj -> C:\Users\PauloMax\Documents\Visual Studio 2015\Projects\INF1761-CG\RayTracing\Debug\RayTracing.exe
   RayTracing.vcxproj -> C:\Users\PauloMax\Documents\Visual Studio 2015\Projects\INF1761-CG\RayTracing\Debug\RayTracing.pdb (Full PDB)

@@ -359,29 +359,10 @@ Pixel RayTracing::trace(Ray ray)
 	}
 	if (t > 0 && t != FLT_MAX && index != -1)
 	{
-		//calcula componente de luz difusa
-		Pixel diffuse = Pixel();
-
 		//ponto de interceptação
-		Point p1 = ray.o + (ray.d * t);
-		//normal no ponto
-		Point normal = objects[index]->normal(p1);
-
-		//luz ambiente
-		Pixel ambient = bgLightIntensity * objects[index]->getMaterial()->Kd;
-		ambient = ambient * 10;
-
-		for (int i = 0; i < lights.size(); i++)
-		{
-			
-			//L é o vetor unitário que aponta do intercepto para a fonte de luz em questão
-			Point L = (lights[i].position - p1);
-			L.normalize();
-			//cosseno entre a normal e L. Calculado com o produto escalar
-			float cos = normal * L;
-			diffuse = diffuse + ((objects[index]->getMaterial()->Kd * lights[i].intensity) * cos);
-		}
-		return diffuse + ambient;
+		Point p1 = ray.o + (ray.d * t);		
+		
+		return shade(index, p1);
 
 	}
 	else
@@ -389,4 +370,38 @@ Pixel RayTracing::trace(Ray ray)
 		return bgColor;
 	}
 	
+}
+
+Pixel RayTracing::shade(int index, Point p1)
+{
+	//MODELO DE PHONG
+	//componente de luz ambiente
+	Pixel ambient = bgLightIntensity * objects[index]->getMaterial()->Kd;
+	//componente de luz difusa
+	Pixel diffuse = Pixel();
+	//componente de luz especular
+	Pixel specular = Pixel();
+	
+	//normal no ponto
+	Point normal = objects[index]->normal(p1);
+	//vetor v aponta do interceptante para o centro de projeção
+	Point v = (eye - p1);
+	v.normalize();
+	
+	for (int i = 0; i < lights.size(); i++)
+	{
+
+		//L é o vetor unitário que aponta do intercepto para a fonte de luz em questão
+		Point L = (lights[i].position - p1);
+		L.normalize();
+		//cosseno entre a normal e L. Calculado com o produto escalar
+		float cos = normal * L;
+		//vetor r = reflexão de L em torno da normal n
+		Point r = L - (normal * (2 * (L * normal)));
+
+		diffuse = diffuse + ((objects[index]->getMaterial()->Kd * lights[i].intensity) * cos);
+		specular = specular + (objects[index]->getMaterial()->Ks * lights[i].intensity * powf((r * v), objects[index]->getMaterial()->n_especular));
+	}
+
+	return diffuse + ambient + specular;
 }

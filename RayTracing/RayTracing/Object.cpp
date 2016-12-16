@@ -291,17 +291,17 @@ Triangle::Triangle(Point v1, Point v2, Point v3, Material *material)
 	this->v2 = v2;
 	this->v3 = v3;
 	this->material = material;
+	//normal
+	n = Point();
+	n = (v2 - v1).produto_vetorial((v3 - v2));
+	n.normalize();
+
 }
 
 float Triangle::intercept(Ray ray)
 {
 //	std::cout << "material:" << material->name << std::endl;
 	
-	//normal
-	Point n = Point();
-	n = (v2 - v1).produto_vetorial((v3 - v2));
-	n.normalize();
-
 	float den = ray.d * n;
 	if (den == 0)
 	//raio é pararelo ao plano do triangulo. Não há interceptação
@@ -336,5 +336,5 @@ float Triangle::intercept(Ray ray)
 
 Point Triangle::normal(Point p)
 {
-	return Point();
+	return n;
 }
