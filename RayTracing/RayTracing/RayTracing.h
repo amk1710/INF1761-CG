@@ -3,6 +3,9 @@
 #ifndef _RAYTRACING
 #define _RAYTRACING
 
+//recursão máxima
+#define REC_MAX 5
+
 #include <vector>
 #include <sstream>
 #include <string>
@@ -41,11 +44,14 @@ private:
 	//obtem o raio do ponto (i,j)
 	Ray getRay(int i, int j);
 
-	//traça o raio e retorna o pixel obtido
-	Pixel trace(Ray ray);
+	//traça o raio e retorna o pixel obtido. rec é o nível de recursão.
+	Pixel trace(Ray ray, int rec);
 
-	//dado o índice de um objeto e um ponto de sua superfície, calcula a cor daquele ponto NAQUELE OBJET0.
-	Pixel shade(int index, Point p1);
+	//dado o índice de um objeto e um ponto de sua superfície, calcula a cor daquele ponto NAQUELE OBJET0. cp é o "centro de projeção"(se não for raio refletido, será eye, se for, será o ponto onde foi refletido)
+	Pixel shade(int index, Point p1, int rec, Point cp);
+
+	//dado um ponto em um objeto e um índice da luz, retorna true se o ponto está na sombra da luz
+	bool sombra(Point p, int index);
 
 	//ENTRY VALUES
 

@@ -271,13 +271,13 @@ void RayTracing::Render(Image & l)
 		for (int j = 0; j < h; j++)
 		{
 			Ray ray = getRay(i, j);
-			Pixel p = trace(ray);
+			Pixel p = trace(ray, 0);
 			l.setPixel(i, j, p);
-			float print = (i*h + j) / (w*h);
+			float print = 100 * (i*h + j) / (w*h);
 			std::cout << '\r'
 				<< std::setw(2) << std::setfill('0') << i << ','
 				<< std::setw(2) << j << ':'
-				<< std::setw(2) << print << std::flush;
+				<< std::setw(2) << print << std::setw(2) << '%' << std::setw(2) << std::flush;
 		}
 	}
 
@@ -338,19 +338,21 @@ Ray RayTracing::getRay(int i, int j)
 	d = d + (Xeye * (b*(((float)i / (float)w) - 0.5 )));
 
 	//normaliza?
-	d.normalize();
+	//d.normalize();
 
 	return Ray(eye, d);
 }
 
-Pixel RayTracing::trace(Ray ray)
+
+
+Pixel RayTracing::trace(Ray ray, int rec)
 {
 	float t = FLT_MAX, temp;
 	int index = -1;
 	for (int i = 0; i < objects.size(); i++)
 	{
 		temp = objects[i]->intercept(ray);
-		if (temp != 0 && temp < t)
+		if (temp > 0 && temp < t)
 		//interceptação mais próxima que anterior encontrado
 		{
 			t = temp;
@@ -360,9 +362,36 @@ Pixel RayTracing::trace(Ray ray)
 	if (t > 0 && t != FLT_MAX && index != -1)
 	{
 		//ponto de interceptação
-		Point p1 = ray.o + (ray.d * t);		
+		Point p1 = ray.o + (ray.d * t);
+		//material
+		Material *mat = objects[index]->getMaterial();
 		
-		return shade(index, p1);
+		Pixel reflection = Pixel();
+		Pixel refracted = Pixel();
+
+		////se o objeto é reflexivo, traça um outro raio com a direção refletida em torno da normal
+		if (mat->k > 0 && rec < REC_MAX)
+		{
+			Point normal = objects[index]->normal(p1);
+			Point dr = ray.d.reflect(normal);
+			//vetor refletido deve "sair"
+			dr = dr * -1;
+			Ray reflectedRay = Ray(p1, dr);
+			//raio da reflexão tem direção refletida e parte do ponto interceptado
+			reflection  = trace(reflectedRay, rec + 1) * mat->k;
+		}
+
+		//if (mat->o < 1)
+		//{
+		//	Point normal = objects[index]->normal(p1);
+		//	//componente tangencial do vetor v
+		//	Point vt = 
+		//	Point dr = 
+		//}
+
+		Pixel shaded = shade(index, p1, rec, ray.o) * (1 - objects[index]->getMaterial()->k) * (mat->o);
+
+		return shaded + reflection + refracted;
 
 	}
 	else
@@ -372,7 +401,7 @@ Pixel RayTracing::trace(Ray ray)
 	
 }
 
-Pixel RayTracing::shade(int index, Point p1)
+Pixel RayTracing::shade(int index, Point p1, int rec, Point cp)
 {
 	//MODELO DE PHONG
 	//componente de luz ambiente
@@ -384,18 +413,23 @@ Pixel RayTracing::shade(int index, Point p1)
 	
 	//normal no ponto
 	Point normal = objects[index]->normal(p1);
-	//vetor v aponta do interceptante para o centro de projeção
-	Point v = (eye - p1);
+	//vetor v aponta do interceptante para o "centro de projeção"(se for uma reflexão, será o ponto onde reflete)
+	Point v = (cp - p1);
 	v.normalize();
 	//Podemos simplificar o algoritmo refletindo o vetor v em relação à normal n uma única vez e, para cada fonte luminosa, fazer o produto interno entre esse vetor e o vetor L correspondente
-	Point Rr = (normal * 2 *(v * normal)) - v;
+	Point Rr = v.reflect(normal);
 	for (int i = 0; i < lights.size(); i++)
 	{
 
+		//se objeto está à sombra para essa luz, luz não é somada
+		if (sombra(p1, i))
+		{
+			continue;
+		}
 		//L é o vetor unitário que aponta do intercepto para a fonte de luz em questão
 		Point L = (lights[i].position - p1);
 		L.normalize();
-		//cosseno entre a normal e L = entre . Calculado com o produto escalar
+		//cosseno entre a normal e L. Calculado com o produto escalar
 		float cos = Rr * L;
 		if (cos > 0)
 		//se o cosseno for menos que 0, a luz não ilumina o objeto porque é obstruída por ele próprio(a luz está "do outro lado" do objeto)
@@ -407,4 +441,23 @@ Pixel RayTracing::shade(int index, Point p1)
 	}
 
 	return diffuse + ambient + specular;
+}
+
+bool RayTracing::sombra(Point p, int index)
+{
+	Point direction = lights[index].position - p;
+	Ray ray = Ray(p, direction);
+	float t;
+	for (int i = 0; i < objects.size(); i++)
+	{
+		t = objects[i]->intercept(ray);
+		if (t > 0 && t < 1)
+		// se o objeto em questão está entre a luz e o ponto p, 
+		{
+			//objeto está na sombra
+			return true;
+		}
+	}
+	//se nenhum objeto está entre o ponto e a luz, objeto não está na sombra
+	return false;
 }

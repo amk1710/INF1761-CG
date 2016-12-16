@@ -8,6 +8,14 @@ void Point::normalize()
 	_z = _z / norm;
 }
 
+Point Point::reflect(Point p2)
+{
+	Point p1 = *this;
+	Point r = (p2 * 2 * (p1 * p2)) - p1;
+	return r;
+
+}
+
 Point::Point(float x, float y, float z)
 {
 	_x = x;

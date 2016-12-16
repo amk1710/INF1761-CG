@@ -7,6 +7,6 @@ MATERIAL shine_black  0 0 0   1 1 1  500  0.6  0  1  null
 MATERIAL mat_black 0 0 0   0 0 0  500  0  0  1  null
 LIGHT 0 400 0 0.8 0.8 0.8
 SPHERE blue   50      100 0 150
-SPHERE yellow       50      -100 0 150
+SPHERE shine_black       50      -100 0 150
 BOX   shine_black    -300 -150 -250   350 200 -170
 BOX   mat_black     -310 -160 -201   360 210 -171

@@ -11,7 +11,7 @@ MATERIAL 0.6 0.6 0.0   0 0 0  0  0  0  1  null               ! tapete
 MATERIAL 0.3 0.2 0.0   0 0 0  30  0  0  1  null              ! estante
 MATERIAL 0.4 0.0 0.0   0.8 0.2 0.2  50  0  0  1  null        ! bola
 MATERIAL 0.0 0.0 0.4   0.2 0.2 0.8  30  0  0  1  null        ! caixa
-MATERIAL 0 0 0   0.4 0.4 0.392  80  0.9  0  1  null          ! quadro
+MATERIAL quadro 0 0 0   0.4 0.4 0.392  80  0.9  0  1  null   ! quadro
 MATERIAL 0 0 0   0.4 0.4 0.392  80  0  0  1  null            ! desenho 1
 MATERIAL 0 0 0   0.4 0.4 0.392  80  0  0  1  null            ! desenho 2 
 MATERIAL 0 0 0   0.4 0.4 0.392  80  0  0  1  null            ! desenho 3
@@ -50,4 +50,4 @@ BOX 7   -200. -165. 198.     -100. -120. 200.          ! pe da estante
 BOX 7   -200. -135. 110.     -100. -133. 200.          ! prateleira
 BOX 9   -150. -118. 170.     -120.  -98. 200.          ! caixa
 BOX 0   -200. -100. 250.     -199.    0. 350.          ! moldura do quadro
-BOX 10  -199.  -95. 255      -198.5  -5. 345.          ! quadro
+BOX quadro  -199.  -95. 255      -198.5  -5. 345.          ! quadro
