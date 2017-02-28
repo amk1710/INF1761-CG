@@ -1,0 +1,92 @@
+﻿GraphicsShader.obj : error LNK2019: unresolved external symbol __imp__glewInit@0 referenced in function "public: void __thiscall GraphicsShader::compileShader(void)" (?compileShader@GraphicsShader@@QAEXXZ)
+GraphicsShader.obj : error LNK2019: unresolved external symbol __imp__glewGetErrorString@4 referenced in function "public: void __thiscall GraphicsShader::compileShader(void)" (?compileShader@GraphicsShader@@QAEXXZ)
+libcpmtd.lib(xlocale.obj) : error LNK2001: unresolved external symbol __free_dbg
+libcpmtd.lib(xwcsxfrm.obj) : error LNK2001: unresolved external symbol __free_dbg
+libcpmtd.lib(StlCompareStringA.obj) : error LNK2001: unresolved external symbol __free_dbg
+libcpmtd.lib(cerr.obj) : error LNK2001: unresolved external symbol __free_dbg
+libcpmtd.lib(StlLCMapStringA.obj) : error LNK2001: unresolved external symbol __free_dbg
+libcpmtd.lib(locale.obj) : error LNK2001: unresolved external symbol __free_dbg
+libcpmtd.lib(wlocale.obj) : error LNK2001: unresolved external symbol __free_dbg
+GraphicsShader.obj : error LNK2001: unresolved external symbol __free_dbg
+IupGLCanvasDummy.obj : error LNK2001: unresolved external symbol __free_dbg
+libcpmtd.lib(locale0.obj) : error LNK2001: unresolved external symbol __free_dbg
+libcpmtd.lib(cout.obj) : error LNK2001: unresolved external symbol __free_dbg
+libcpmtd.lib(xlocale.obj) : error LNK2001: unresolved external symbol __malloc_dbg
+libcpmtd.lib(xwcsxfrm.obj) : error LNK2001: unresolved external symbol __malloc_dbg
+libcpmtd.lib(StlCompareStringA.obj) : error LNK2001: unresolved external symbol __malloc_dbg
+libcpmtd.lib(cerr.obj) : error LNK2001: unresolved external symbol __malloc_dbg
+libcpmtd.lib(StlLCMapStringA.obj) : error LNK2001: unresolved external symbol __malloc_dbg
+libcpmtd.lib(locale.obj) : error LNK2001: unresolved external symbol __malloc_dbg
+libcpmtd.lib(wlocale.obj) : error LNK2001: unresolved external symbol __malloc_dbg
+GraphicsShader.obj : error LNK2001: unresolved external symbol __malloc_dbg
+IupGLCanvasDummy.obj : error LNK2001: unresolved external symbol __malloc_dbg
+libcpmtd.lib(locale0.obj) : error LNK2001: unresolved external symbol __malloc_dbg
+libcpmtd.lib(cout.obj) : error LNK2001: unresolved external symbol __malloc_dbg
+libcpmtd.lib(StlCompareStringA.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+libcpmtd.lib(locale.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+libcpmtd.lib(wlocale.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+libcpmtd.lib(xlocale.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+libcpmtd.lib(xmbtowc.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+libcpmtd.lib(syserror.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+libcpmtd.lib(cout.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+libcpmtd.lib(cerr.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+libcpmtd.lib(StlLCMapStringA.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+GraphicsShader.obj : error LNK2001: unresolved external symbol __CrtDbgReportW
+IupGLCanvasDummy.obj : error LNK2001: unresolved external symbol __CrtDbgReportW
+OpenGLMatrixManager.obj : error LNK2001: unresolved external symbol __CrtDbgReportW
+libcpmtd.lib(stdthrow.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+GraphicsShader.obj : error LNK2001: unresolved external symbol __imp____glewAttachShader
+GraphicsShader.obj : error LNK2001: unresolved external symbol __imp____glewCompileShader
+GraphicsShader.obj : error LNK2001: unresolved external symbol __imp____glewCreateProgram
+GraphicsShader.obj : error LNK2001: unresolved external symbol __imp____glewCreateShader
+GraphicsShader.obj : error LNK2001: unresolved external symbol __imp____glewDeleteShader
+GraphicsShader.obj : error LNK2001: unresolved external symbol __imp____glewDetachShader
+GraphicsShader.obj : error LNK2001: unresolved external symbol __imp____glewGetProgramInfoLog
+GraphicsShader.obj : error LNK2001: unresolved external symbol __imp____glewGetProgramiv
+GraphicsShader.obj : error LNK2001: unresolved external symbol __imp____glewGetShaderInfoLog
+GraphicsShader.obj : error LNK2001: unresolved external symbol __imp____glewGetShaderiv
+GraphicsShader.obj : error LNK2001: unresolved external symbol __imp____glewLinkProgram
+GraphicsShader.obj : error LNK2001: unresolved external symbol __imp____glewShaderSource
+GraphicsShader.obj : error LNK2001: unresolved external symbol __imp____glewUseProgram
+GraphicsShader.obj : error LNK2001: unresolved external symbol __imp____glewValidateProgram
+GraphicsShader.obj : error LNK2001: unresolved external symbol __imp____glewProgramParameteri
+IupGLCanvasDummy.obj : error LNK2019: unresolved external symbol _IupUpdate referenced in function "private: static int __cdecl IupGLCanvasDummy::resizeCanvasCallback(struct Ihandle_ *,int,int)" (?resizeCanvasCallback@IupGLCanvasDummy@@CAHPAUIhandle_@@HH@Z)
+IupGLCanvasDummy.obj : error LNK2019: unresolved external symbol _IupDestroy referenced in function "public: virtual __thiscall IupGLCanvasDummy::~IupGLCanvasDummy(void)" (??1IupGLCanvasDummy@@UAE@XZ)
+IupGLCanvasDummy.obj : error LNK2019: unresolved external symbol _IupShow referenced in function "public: void __thiscall IupGLCanvasDummy::show(void)" (?show@IupGLCanvasDummy@@QAEXXZ)
+IupGLCanvasDummy.obj : error LNK2019: unresolved external symbol _IupHide referenced in function "public: void __thiscall IupGLCanvasDummy::hide(void)" (?hide@IupGLCanvasDummy@@QAEXXZ)
+IupGLCanvasDummy.obj : error LNK2019: unresolved external symbol _IupMap referenced in function "private: void __thiscall IupGLCanvasDummy::createWindow(void)" (?createWindow@IupGLCanvasDummy@@AAEXXZ)
+IupGLCanvasDummy.obj : error LNK2019: unresolved external symbol _IupSetAttribute referenced in function "private: void __thiscall IupGLCanvasDummy::createWindow(void)" (?createWindow@IupGLCanvasDummy@@AAEXXZ)
+IupGLCanvasDummy.obj : error LNK2019: unresolved external symbol _IupGetAttribute referenced in function "private: static int __cdecl IupGLCanvasDummy::actionCanvasCallback(struct Ihandle_ *)" (?actionCanvasCallback@IupGLCanvasDummy@@CAHPAUIhandle_@@@Z)
+IupGLCanvasDummy.obj : error LNK2019: unresolved external symbol _IupSetCallback referenced in function "private: void __thiscall IupGLCanvasDummy::createWindow(void)" (?createWindow@IupGLCanvasDummy@@AAEXXZ)
+IupGLCanvasDummy.obj : error LNK2019: unresolved external symbol _IupFill referenced in function "private: void __thiscall IupGLCanvasDummy::createWindow(void)" (?createWindow@IupGLCanvasDummy@@AAEXXZ)
+IupGLCanvasDummy.obj : error LNK2019: unresolved external symbol _IupVbox referenced in function "private: void __thiscall IupGLCanvasDummy::createWindow(void)" (?createWindow@IupGLCanvasDummy@@AAEXXZ)
+IupGLCanvasDummy.obj : error LNK2019: unresolved external symbol _IupHbox referenced in function "private: void __thiscall IupGLCanvasDummy::createWindow(void)" (?createWindow@IupGLCanvasDummy@@AAEXXZ)
+IupGLCanvasDummy.obj : error LNK2019: unresolved external symbol _IupButton referenced in function "private: void __thiscall IupGLCanvasDummy::createWindow(void)" (?createWindow@IupGLCanvasDummy@@AAEXXZ)
+IupGLCanvasDummy.obj : error LNK2019: unresolved external symbol _IupDialog referenced in function "private: void __thiscall IupGLCanvasDummy::createWindow(void)" (?createWindow@IupGLCanvasDummy@@AAEXXZ)
+IupGLCanvasDummy.obj : error LNK2019: unresolved external symbol _IupGLCanvas referenced in function "private: void __thiscall IupGLCanvasDummy::createWindow(void)" (?createWindow@IupGLCanvasDummy@@AAEXXZ)
+IupGLCanvasDummy.obj : error LNK2019: unresolved external symbol _IupGLMakeCurrent referenced in function "private: static int __cdecl IupGLCanvasDummy::actionCanvasCallback(struct Ihandle_ *)" (?actionCanvasCallback@IupGLCanvasDummy@@CAHPAUIhandle_@@@Z)
+IupGLCanvasDummy.obj : error LNK2019: unresolved external symbol _IupGLSwapBuffers referenced in function "private: static int __cdecl IupGLCanvasDummy::actionCanvasCallback(struct Ihandle_ *)" (?actionCanvasCallback@IupGLCanvasDummy@@CAHPAUIhandle_@@@Z)
+IupGLCanvasDummy.obj : error LNK2001: unresolved external symbol __imp____glewEnableVertexAttribArray
+IupGLCanvasDummy.obj : error LNK2001: unresolved external symbol __imp____glewGetAttribLocation
+IupGLCanvasDummy.obj : error LNK2001: unresolved external symbol __imp____glewGetUniformLocation
+IupGLCanvasDummy.obj : error LNK2001: unresolved external symbol __imp____glewUniformMatrix4fv
+IupGLCanvasDummy.obj : error LNK2001: unresolved external symbol __imp____glewVertexAttribPointer
+main.obj : error LNK2019: unresolved external symbol _IupOpen referenced in function _main
+main.obj : error LNK2019: unresolved external symbol _IupClose referenced in function _main
+main.obj : error LNK2019: unresolved external symbol _IupMainLoop referenced in function _main
+main.obj : error LNK2019: unresolved external symbol _IupVersion referenced in function _main
+main.obj : error LNK2019: unresolved external symbol _IupGLCanvasOpen referenced in function _main
+libcpmtd.lib(_tolower.obj) : error LNK2019: unresolved external symbol __calloc_dbg referenced in function __Getctype
+libcpmtd.lib(locale.obj) : error LNK2001: unresolved external symbol __calloc_dbg
+libcpmtd.lib(wlocale.obj) : error LNK2001: unresolved external symbol __calloc_dbg
+libcpmtd.lib(xlocale.obj) : error LNK2001: unresolved external symbol __calloc_dbg
+libcpmtd.lib(_tolower.obj) : error LNK2019: unresolved external symbol __wcsdup_dbg referenced in function __Getctype
+libcpmtd.lib(xstrcoll.obj) : error LNK2001: unresolved external symbol __wcsdup_dbg
+libcpmtd.lib(locale.obj) : error LNK2019: unresolved external symbol __realloc_dbg referenced in function "private: static void __cdecl std::locale::_Locimp::_Locimp_Addfac(class std::locale::_Locimp *,class std::locale::facet *,unsigned int)" (?_Locimp_Addfac@_Locimp@locale@std@@CAXPAV123@PAVfacet@23@I@Z)
+C:/Users/PauloMax/myLibs/IUP\iup.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'X86'
+C:/Users/PauloMax/myLibs/IUP\iupimglib.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'X86'
+C:/Users/PauloMax/myLibs/IUP\iupgl.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'X86'
+C:/Users/PauloMax/myLibs/IUP\zlib1.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'X86'
+C:/Users/PauloMax/myLibs/IUP\freetype6.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'X86'
+C:/Users/PauloMax/myLibs/IUP\ftgl.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'X86'
+c:\users\paulomax\documents\visual studio 2015\Projects\ConsoleApplication1\Debug\ConsoleApplication1.exe : fatal error LNK1120: 49 unresolved externals

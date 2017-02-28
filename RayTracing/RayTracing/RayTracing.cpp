@@ -383,19 +383,10 @@ Pixel RayTracing::trace(Ray ray, int rec)
 
 		if (mat->o < 1)
 		{
-			//Point normal = objects[index]->normal(p1);
-			//Point dNormalized = ray.d;
-			//dNormalized.normalize();
-			////cos entre raio incidente e reta da 
-			//float cosI = (normal *-1) * dNormalized;
-			////cos^2 + sen^2 = 1
-			//float senI = sqrt(1 - cosI*cosI);
-			////n é o coeficiente de refração do meio
-			////sen(angulo-refratado) / sen(angulo-incidente) = Ni / Nr
-			//// --> angulo-refratado = arcsen(Ni / Nr * sen(angulo-incidente))
-			////convenção: N do meio "ar" (fora de qualquer objeto é 1)
-			//float angR = asin(1.0 / mat->n_refracao * senI);
-
+			//Caso de refratação. Implementação abaixo compila, porém não funciona corretamente.
+			
+			float n1, n2;
+			
 			Point normal = objects[index]->normal(p1);
 			//v é o unitário que aponta para o eye
 			Point v = ray.d * -1;
@@ -403,9 +394,22 @@ Pixel RayTracing::trace(Ray ray, int rec)
 			//componente tangencial de v
 			Point vt = normal * (v * normal) - v;
 			float sinI = vt.norma();
+			float cosI = sqrt(1 - sinI*sinI);
 			//seno e cosseno do ângulo refratado
 			//por definição: N do meio "vácuo" (fora de qualquer objeto) é 1
-			float sinR = 1.0 / mat->n_refracao * sinI;
+			if (cosI > 1.0)
+			{
+				//refratando para dentro do objeto
+				n1 = 1.0;
+				n2 = mat->n_refracao;
+			}
+			else
+			{
+				//refratando para fora do objeto
+				n1 = mat->n_refracao;
+				n2 = 1.0;
+			}
+			float sinR = n1 / n2 * sinI;
 			float cosR = sqrt(1 - sinR*sinR);
 
 			vt.normalize();

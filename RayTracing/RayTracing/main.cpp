@@ -25,7 +25,7 @@
 int main( int argc, char** argv )
 {
 
-	char* name = "20_glass_balls.rt5";
+	char* name = "ref.rt5";
 	RayTracing rt = RayTracing(name);
 	Image l;
 
@@ -36,7 +36,7 @@ int main( int argc, char** argv )
 	clock_t end = clock();
 	double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
       
-    if (l.writeBMP( "20_glass_ballsCOut.bmp" ))
+    if (l.writeBMP( "refOut.bmp" ))
     {
         printf( "Escrita executada com sucesso\n" );
     }

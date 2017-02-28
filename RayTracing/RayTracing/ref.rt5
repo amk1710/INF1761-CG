@@ -1,0 +1,7 @@
+RT 5
+SCENE 0.8 0 0 0 0 0 null
+CAMERA 120 50 40 0 30 0 0 1 0 90 1 100 400 400
+MATERIAL ball_glass 0 0.5 1.0   1 1 1  35  1  1.5  0.8  null
+MATERIAL table_glass 0.1 0.8 0.8   0 0 0  2000  0.6  0  1  null
+LIGHT 100 100 0 0.7 0.7 0.7
+SPHERE ball_glass    10        0 0 0
