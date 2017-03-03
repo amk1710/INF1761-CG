@@ -565,12 +565,11 @@ int IupGLCanvasDummy::wheelCanvasCallback( Ihandle* canvas, float delta, int x,
 
 	if (delta > 0)
 	{
-		window->scale += 0.2;
+		window->scale *= 1.05;
 	}
 	else if (delta < 0)
 	{
-		window->scale -= 0.2;
-		if (window->scale < 0) window->scale = 0.1;
+		window->scale *= 0.95;
 	}
 
 	//Redesenha a janela.

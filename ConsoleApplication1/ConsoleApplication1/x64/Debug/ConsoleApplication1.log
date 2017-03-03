@@ -1,12 +1,9 @@
 ﻿  IupGLCanvasDummy.cpp
-c:\users\paulomax\documents\visual studio 2015\projects\consoleapplication1\consoleapplication1\iupglcanvasdummy.cpp(165): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-c:\users\paulomax\documents\visual studio 2015\projects\consoleapplication1\consoleapplication1\iupglcanvasdummy.cpp(168): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-c:\users\paulomax\documents\visual studio 2015\projects\consoleapplication1\consoleapplication1\iupglcanvasdummy.cpp(174): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-c:\users\paulomax\documents\visual studio 2015\projects\consoleapplication1\consoleapplication1\iupglcanvasdummy.cpp(177): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-c:\users\paulomax\documents\visual studio 2015\projects\consoleapplication1\consoleapplication1\iupglcanvasdummy.cpp(305): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-c:\users\paulomax\documents\visual studio 2015\projects\consoleapplication1\consoleapplication1\iupglcanvasdummy.cpp(568): warning C4305: '+=': truncation from 'double' to 'float'
-c:\users\paulomax\documents\visual studio 2015\projects\consoleapplication1\consoleapplication1\iupglcanvasdummy.cpp(572): warning C4305: '-=': truncation from 'double' to 'float'
-c:\users\paulomax\documents\visual studio 2015\projects\consoleapplication1\consoleapplication1\iupglcanvasdummy.cpp(573): warning C4305: '=': truncation from 'double' to 'float'
-LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
-  ConsoleApplication1.vcxproj -> C:\Users\PauloMax\Documents\Visual Studio 2015\Projects\ConsoleApplication1\x64\Debug\ConsoleApplication1.exe
-  ConsoleApplication1.vcxproj -> C:\Users\PauloMax\Documents\Visual Studio 2015\Projects\ConsoleApplication1\x64\Debug\ConsoleApplication1.pdb (Full PDB)
+c:\users\paulomax\documents\visual studio 2015\projects\inf1761-cg\consoleapplication1\consoleapplication1\iupglcanvasdummy.cpp(165): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+c:\users\paulomax\documents\visual studio 2015\projects\inf1761-cg\consoleapplication1\consoleapplication1\iupglcanvasdummy.cpp(168): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+c:\users\paulomax\documents\visual studio 2015\projects\inf1761-cg\consoleapplication1\consoleapplication1\iupglcanvasdummy.cpp(174): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+c:\users\paulomax\documents\visual studio 2015\projects\inf1761-cg\consoleapplication1\consoleapplication1\iupglcanvasdummy.cpp(177): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+c:\users\paulomax\documents\visual studio 2015\projects\inf1761-cg\consoleapplication1\consoleapplication1\iupglcanvasdummy.cpp(568): warning C4305: '*=': truncation from 'double' to 'float'
+c:\users\paulomax\documents\visual studio 2015\projects\inf1761-cg\consoleapplication1\consoleapplication1\iupglcanvasdummy.cpp(572): warning C4305: '*=': truncation from 'double' to 'float'
+  ConsoleApplication1.vcxproj -> C:\Users\PauloMax\Documents\Visual Studio 2015\Projects\INF1761-CG\ConsoleApplication1\x64\Debug\ConsoleApplication1.exe
+  ConsoleApplication1.vcxproj -> C:\Users\PauloMax\Documents\Visual Studio 2015\Projects\INF1761-CG\ConsoleApplication1\x64\Debug\ConsoleApplication1.pdb (Full PDB)
