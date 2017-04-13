@@ -12,4 +12,4 @@ Trabalhos da disciplina INF1761, computação gráfica, cursado em 2016.2 por An
 	Ray Tracing (https://github.com/amk1710/INF1761-CG/tree/master/RayTracing): Implementação em c++ de um algoritmo de geração de imagens por traçado de raios. Não exaustivamente recursivo. Um exemplo de imagem final é "exemplo.bmp". Desenvolvido como parte da disciplina INF1761(Computação Gráfica)
 		com os professores Marcelo Gattass e Jéferson Coelho.
 
-	SLIC - SuperPixels - Implementação em C++ de um algoritmo para particionar uma imagem bitmap em n superpixels, que seguem os contornos da imagem. Um exemplo de imagem final é "exemplo.bmp".
+	SLIC - SuperPixels - Implementação em C++ de um algoritmo para particionar uma imagem bitmap em n superpixels, que seguem os contornos da imagem. Um exemplo de imagem final é "exemplo-mapa_mundi.bmp". As imagens originais e mais exemplos são encontrados na pasta Imagens
