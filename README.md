@@ -13,3 +13,9 @@ Trabalhos da disciplina INF1761, computação gráfica, cursado em 2016.2 por An
 		com os professores Marcelo Gattass e Jéferson Coelho.
 
 	SLIC - SuperPixels - Implementação em C++ de um algoritmo para particionar uma imagem bitmap em n superpixels, que seguem os contornos da imagem. Um exemplo de imagem final é "exemplo-mapa_mundi.bmp". As imagens originais e mais exemplos são encontrados na pasta Imagens
+
+O código que escrevi para este trabalho está disponível abertamente através da licença MIT.
+Este trabalho usa software desenvolvido por terceiros e disponibilizado abertamente. Para informação sobre licenças, checar o arquivo license_information.txt.
+
+The software I developed in this repository is avaiable under the terms of the MIT license.
+The work in this repository uses openly avaiable third-party software. For licensing information, please check license_information.txt.
