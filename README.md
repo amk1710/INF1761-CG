@@ -17,5 +17,5 @@ Trabalhos da disciplina INF1761, computação gráfica, cursado em 2016.2 por An
 O código que escrevi para este trabalho está disponível abertamente através da licença MIT.
 Este trabalho usa software desenvolvido por terceiros e disponibilizado abertamente. Para informação sobre licenças, checar o arquivo license_information.txt.
 
-The software I developed in this repository is avaiable under the terms of the MIT license.
+The software I developed in this repository is available under the terms of the MIT license.
 The work in this repository uses openly avaiable third-party software. For licensing information, please check license_information.txt.
